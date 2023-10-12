@@ -14,8 +14,11 @@
 
 #define MAX_ARGS 64
 #define MAX_INPUT_LENGTH 1024
+
 extern char **environ;
 void display_prompt(void);
 void parse_command(char* command, char** args);
 void execute_command(char* const args[]);
+void construct_full_path(const char *directory, const char *command, char *full_path, size_t full_path_size);
+
 #endif
