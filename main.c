@@ -16,7 +16,7 @@ int main()
 	char* args[MAX_ARGS];
 	ssize_t bytes_read;
 	int arg_count = 0;
-	
+
 	while (1)
 	{
 		/* Display the shell prompt */
@@ -41,15 +41,19 @@ int main()
 
 		/*handle implement inbuilt exit command */
 		handle_exit_command(args, arg_count);
-		/* Execute the command */
-		execute_command(args);
+	/* Check if the user entered the 'env' command */
+        if (strcmp(args[0], "env") == 0) {
+            printEnvironmentVariables();
+        } else {
+            /* Execute the command */
+            execute_command(args);
+        }
 	}
 
 	if (errno != 0)
 	{
 		perror("Unexpected error");
 	}
-
 	return (0);
 }
 
