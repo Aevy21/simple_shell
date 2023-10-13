@@ -15,6 +15,8 @@ int main()
 	char input[MAX_INPUT_LENGTH];
 	char* args[MAX_ARGS];
 	ssize_t bytes_read;
+	int arg_count = 0;
+	
 	while (1)
 	{
 		/* Display the shell prompt */
@@ -37,6 +39,8 @@ int main()
 
 		parse_command(input, args);
 
+		/*handle implement inbuilt exit command */
+		handle_exit_command(args, arg_count);
 		/* Execute the command */
 		execute_command(args);
 	}
