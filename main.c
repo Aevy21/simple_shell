@@ -29,10 +29,17 @@ int main(void)
 		{
 			perror("Read error");
 			exit(EXIT_FAILURE);
-		} else if (bytes_read == 0)
-		{
-			break; /* End of input */
+		
 		}
+		else if (bytes_read == 0)
+		{
+			break; /* Exit the  shell*/
+		}
+		else if (bytes_read == 1)
+		{
+			continue;
+		}
+
 		/* Null-terminate the input */
 		input[bytes_read] = '\0';
 		/* Parse the command into arguments */

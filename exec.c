@@ -4,7 +4,7 @@
  * @args: An array of arguments for the command to be executed.
  */
 
-void execute_command(char const *args[])
+void execute_command(char *args[])
 {
 	pid_t pid = fork();
 	char **env = environ;
