@@ -33,8 +33,6 @@ int main()
 		}
 		/* Null-terminate the input */
 		input[bytes_read] = '\0';
-		/* Check if the input contains only spaces */
-          check_space(input);
 		/* Parse the command into arguments */
 		parse_command(input, args);
 
