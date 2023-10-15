@@ -34,7 +34,9 @@ int main()
 		}
 		/* Null-terminate the input */
 		input[bytes_read] = '\0';
-
+/* Check if the input contains only spaces*/
+      et number
+	      (check_space(input);
 		/* Parse the command into arguments */
 
 		parse_command(input, args);
@@ -44,7 +46,8 @@ int main()
 	/* Check if the user entered the 'env' command */
         if (strcmp(args[0], "env") == 0) {
             printEnvironmentVariables();
-        } else {
+        } else 
+	{
             /* Execute the command */
             execute_command(args);
         }

@@ -18,6 +18,7 @@
 
 extern char **environ;
 
+int check_space(char *args);
 void display_prompt(void);
 void parse_command(char* command, char** args);
 void execute_command(char* const args[]);
