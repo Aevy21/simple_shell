@@ -10,12 +10,13 @@
  * Return: 0 upon successful execution or an error code upon failure.
  */
 
-int main()
+int main(void)
 {
 	char input[MAX_INPUT_LENGTH];
-	char* args[MAX_ARGS];
+	char *args[MAX_ARGS];
 	ssize_t bytes_read;
 	int arg_count = 0;
+
 	while (1)
 	{
 		/* Display the shell prompt */
@@ -28,7 +29,8 @@ int main()
 		{
 			perror("Read error");
 			exit(EXIT_FAILURE);
-		} else if (bytes_read == 0) {
+		} else if (bytes_read == 0)
+		{
 			break; /* End of input */
 		}
 		/* Null-terminate the input */
@@ -38,15 +40,16 @@ int main()
 
 		/*handle implement inbuilt exit command */
 		handle_exit_command(args, arg_count);
-	/* Check if the user entered the 'env' command */
-        if (strcmp(args[0], "env") == 0) {
-            printEnvironmentVariables();
-        }
-	else
-	{
-            /* Execute the command */
-            execute_command(args);
-        }
+		/* Check if the user entered the 'env' command */
+		if (strcmp(args[0], "env") == 0)
+		{
+			printEnvironmentVariables();
+		}
+		else
+		{
+			/* Execute the command */
+			execute_command(args);
+		}
 	}
 
 	if (errno != 0)
