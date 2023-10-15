@@ -48,16 +48,5 @@ void execute_command(char* const args[])
 			perror("Wait error");
 			exit(EXIT_FAILURE);
 		}
-		if (WIFEXITED(status))
-		{
-			const char* exit_status_message = "Child process exited normally\n";
-			write(STDOUT_FILENO, exit_status_message, strlen(exit_status_message));
 		}
-		else
-		{
-			const char* termination_message = "Child process terminated abnormally\n";
-			write(STDOUT_FILENO, termination_message, strlen(termination_message));
-		}
-	}
 }
-
