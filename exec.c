@@ -4,10 +4,10 @@
  * @args: An array of arguments for the command to be executed.
  */
 
-void execute_command(char* const args[])
+void execute_command(char const *args[])
 {
 	pid_t pid = fork();
-	char** env = environ;
+	char **env = environ;
 	char full_path[1024];
 
 	if (args[0] == NULL)
@@ -25,16 +25,21 @@ void execute_command(char* const args[])
 	{
 		/* Child process */
 		/* Null environment for execve */
-		if (strchr(args[0], '/') != NULL) {
+		if (strchr(args[0], '/') != NULL)
+		{
 			/* The command includes a path, execute directly */
-			if (execve(args[0], args, env) == -1) {
+			if (execve(args[0], args, env) == -1)
+			{
 				perror("Execve error");
 				exit(EXIT_FAILURE);
 			}
-		} else {
+		}
+		else
+		{
 			/* Construct the full path and execute.*/
 			construct_full_path("/bin", args[0], full_path, sizeof(full_path));
-			if (execve(full_path, args, env) == -1) {
+			if (execve(full_path, args, env) == -1)
+			{
 				perror("Execve error");
 				exit(EXIT_FAILURE);
 			}
@@ -44,7 +49,8 @@ void execute_command(char* const args[])
 	{
 		/* This part is for the parent process */
 		int status;
-		if (wait(&status) == -1) {
+		if (wait(&status) == -1)
+		{
 			perror("Wait error");
 			exit(EXIT_FAILURE);
 		}
