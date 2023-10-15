@@ -19,6 +19,7 @@ void printEnvironmentVariables(void)
 
 {
 	char **env = environ;
+
 	for (; *env != NULL; env++)
 	{
 		if (!isLsColorsVariable(*env))
