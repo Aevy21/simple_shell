@@ -16,7 +16,6 @@ int main()
 	char* args[MAX_ARGS];
 	ssize_t bytes_read;
 	int arg_count = 0;
-
 	while (1)
 	{
 		/* Display the shell prompt */
@@ -34,11 +33,9 @@ int main()
 		}
 		/* Null-terminate the input */
 		input[bytes_read] = '\0';
-/* Check if the input contains only spaces*/
-      et number
-	      (check_space(input);
+		/* Check if the input contains only spaces */
+          check_space(input);
 		/* Parse the command into arguments */
-
 		parse_command(input, args);
 
 		/*handle implement inbuilt exit command */
@@ -46,7 +43,8 @@ int main()
 	/* Check if the user entered the 'env' command */
         if (strcmp(args[0], "env") == 0) {
             printEnvironmentVariables();
-        } else 
+        }
+	else
 	{
             /* Execute the command */
             execute_command(args);
