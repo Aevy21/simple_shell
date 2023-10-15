@@ -23,6 +23,7 @@ void handle_exit_command(char *args[], int arg_count)
 		if (arg_count > 1)
 		{
 			int exit_code = atoi(args[1]);
+
 			exit(exit_code);
 		}
 		else
