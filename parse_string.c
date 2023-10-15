@@ -6,16 +6,17 @@
  * @args: An array to store the parsed arguments.
  */
 
-void parse_command(char* command, char** args)
+void parse_command(char *command, char **args)
 {
-    char* token = strtok(command, " \t\n");
+	char *token = strtok(command, " \t\n");
 
-    int arg_count = 0;
-    while (token != NULL)
-{
-        args[arg_count++] = token;
-        token = strtok(NULL, " \t\n");
-    }
-    args[arg_count] = NULL;
+	int arg_count = 0;
+
+	while (token != NULL)
+	{
+		args[arg_count++] = token;
+		token = strtok(NULL, " \t\n");
+	}
+	args[arg_count] = NULL;
 }
 
