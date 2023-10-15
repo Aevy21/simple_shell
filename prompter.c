@@ -5,12 +5,12 @@
  */
 void display_prompt(void)
 {
-    if (isatty(STDOUT_FILENO))
-    {
-        if (write(STDOUT_FILENO, "MyShell> ", 9) == -1)
+	if (isatty(STDOUT_FILENO))
 	{
-            perror("Write error");
-            exit(EXIT_FAILURE);
-        }
-    }
+		if (write(STDOUT_FILENO, "MyShell> ", 9) == -1)
+		{
+			perror("Write error");
+			exit(EXIT_FAILURE);
+		}
+	}
 }
