@@ -27,4 +27,12 @@ int is_exit_command(const char *command);
 void printEnvironmentVariables(void);
 int isLsColorsVariable(const char *variable);
 
+/*helper functions prototypes*/
+int _strlen(char *s);
+char *_strchr(char *str, char c);
+int _strcmp(char *s1, char *s2);
+char *_strncpy(char *dest, char *src, int n);
+char *_strcat(char *dest, char *src);
+char* _strtok(char* str, const char* delimiters);
+
 #endif

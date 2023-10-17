@@ -5,7 +5,7 @@
  */
 void display_prompt(void)
 {
-	if (isatty(STDOUT_FILENO))
+	if (isatty(STDIN_FILENO))
 	{
 		if (write(STDOUT_FILENO, "MyShell> ", 9) == -1)
 		{

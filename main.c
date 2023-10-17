@@ -29,21 +29,20 @@ int main(void)
 		{
 			perror("Read error");
 			exit(EXIT_FAILURE);
-		
+
 		}
 		else if (bytes_read == 0)
 		{
 			break; /* Exit the  shell*/
 		}
-		else if (bytes_read == 1)
-		{
-			continue;
-		}
 
 		/* Null-terminate the input */
 		input[bytes_read] = '\0';
 		/* Parse the command into arguments */
-		parse_command(input, args);
+		parse_command(input, args);                if (args[0] == NULL)
+		{
+			continue;
+		}
 
 		/*handle implement inbuilt exit command */
 		handle_exit_command(args, arg_count);
