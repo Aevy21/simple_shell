@@ -24,7 +24,6 @@ char *_strtok(char *str, const char *delimiters)
 	}
 
 	/* If 'nextToken' is NULL or points to the end of the string, return NULL*/
-
 	if (nextToken == NULL || *nextToken == '\0')
 	{
 		return (NULL);
