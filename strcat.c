@@ -9,7 +9,8 @@
  */
 char *_strcat(char *dest, char *src)
 {
-	int dest_len = 0; /* Initialize a variable to hold the length of the destination string. */
+	int dest_len = 0;
+	/* Initialize a variable to hold the length of the destination string. */
 	int i;
 
 	/* Calculate the length of the destination string. */

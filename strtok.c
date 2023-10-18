@@ -15,7 +15,7 @@ char *_strtok(char *str, const char *delimiters)
 	char *tokenStart;
 	int i;
 
-	/*If 'str' is not NULL, initialize or reset 'nextToken' to the start of 'str'*/
+	/*If 'str' is not NULL, initialize 'nextToken' to the start of 'str'*/
 	if (str != NULL)
 	{
 		nextToken = str;
@@ -30,7 +30,7 @@ char *_strtok(char *str, const char *delimiters)
 
 	tokenStart = nextToken;
 
-	/* Iterate through the string until a delimiter is found or the end of the string*/
+	/* Iterate through the str until a delim is found or the end of the string*/
 	while (*nextToken != '\0')
 	{
 

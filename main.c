@@ -39,7 +39,8 @@ int main(void)
 		/* Null-terminate the input */
 		input[bytes_read] = '\0';
 		/* Parse the command into arguments */
-		parse_command(input, args);                if (args[0] == NULL)
+		parse_command(input, args);
+		if (args[0] == NULL)
 		{
 			continue;
 		}

@@ -12,13 +12,13 @@ char *_strncpy(char *dest, char *src, int n)
 {
 	int i;
 
-	/* Copy characters from the source string to the destination buffer until the end */
+	/* Cp characters from the src string to the dest buffer until the end */
 	for (i = 0; src[i] != '\0' && i < n; i++)
 	{
 		dest[i] = src[i];
 	}
 
-	/* If there are remaining positions in the destination buffer, fill them with null terminators. */
+	/* If there are remaining positions in the dest buffer, fill them with '\0'*/
 	while (i < n)
 	{
 		dest[i++] = '\0';

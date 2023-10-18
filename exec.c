@@ -3,7 +3,6 @@
  * execute_command - Execute a command in a child process.
  * @args: An array of arguments for the command to be executed.
  */
-
 void execute_command(char *args[])
 {
 	pid_t pid = fork();
@@ -15,7 +14,6 @@ void execute_command(char *args[])
 		/* Empty command, do nothing */
 		return;
 	}
-
 	if (pid == -1)
 	{
 		perror("Fork error");
@@ -24,7 +22,6 @@ void execute_command(char *args[])
 	else if (pid == 0)
 	{
 		/* Child process */
-		/* Null environment for execve */
 		if (strchr(args[0], '/') != NULL)
 		{
 			/* The command includes a path, execute directly */
