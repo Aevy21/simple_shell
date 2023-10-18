@@ -38,4 +38,5 @@ char *_strtok(char *str, const char *delimiters);
 char *customStrncat(char *dest, const char *src, size_t n);
 int _strncmp(char *s1,  char *s2, size_t n);
 char *_strncat(char *dest, const char *src, size_t n);
+int _atoi(char *str);
 #endif
