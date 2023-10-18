@@ -16,7 +16,6 @@ int _strlen(char *s)
 		length++;
 		s++;
 	}
-
 	/* Return the length of the string.*/
 	return (length);
 }
