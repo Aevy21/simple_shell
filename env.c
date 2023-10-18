@@ -6,10 +6,10 @@
  *
  * Return: 1 if the variable starts with "LS_COLORS", 0 otherwise.
  */
-int isLsColorsVariable(const char *variable)
+int isLsColorsVariable(char *variable)
 {
 	/* Check if the variable starts with "LS_COLORS" */
-	return (strncmp(variable, "LS_COLORS", 9) == 0);
+	return (_strncmp(variable, "LS_COLORS", 9) == 0);
 }
 
 /**
@@ -24,7 +24,7 @@ void printEnvironmentVariables(void)
 	{
 		if (!isLsColorsVariable(*env))
 		{
-			write(1, *env, strlen(*env)); /* Print the environment variable */
+			write(1, *env, _strlen(*env)); /* Print the environment variable */
 			write(1, "\n", 1);            /* Print a newline character */
 		}
 	}

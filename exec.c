@@ -1,9 +1,13 @@
 #include "main.h"
+
+void execute_command(char *args[], char *input);
+
 /**
  * execute_command - Execute a command in a child process.
  * @args: An array of arguments for the command to be executed.
+ * @input:input string.
  */
-void execute_command(char *args[])
+void execute_command(char *args[], char *input)
 {
 	pid_t pid = fork();
 	char **env = environ;
@@ -22,7 +26,7 @@ void execute_command(char *args[])
 	else if (pid == 0)
 	{
 		/* Child process */
-		if (strchr(args[0], '/') != NULL)
+		if (_strchr(args[0], '/') != NULL)
 		{
 			/* The command includes a path, execute directly */
 			if (execve(args[0], args, env) == -1)
@@ -38,6 +42,7 @@ void execute_command(char *args[])
 			if (execve(full_path, args, env) == -1)
 			{
 				perror("Execve error");
+				free(input);
 				exit(EXIT_FAILURE);
 			}
 		}
@@ -46,10 +51,11 @@ void execute_command(char *args[])
 	{
 		/* This part is for the parent process */
 		int status;
+
 		if (wait(&status) == -1)
 		{
 			perror("Wait error");
 			exit(EXIT_FAILURE);
 		}
-		}
+	}
 }

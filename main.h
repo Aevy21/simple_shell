@@ -20,12 +20,12 @@ extern char **environ;
 
 void display_prompt(void);
 void parse_command(char *command, char **args);
-void execute_command(char *args[]);
+void execute_command(char *args[],char *input);
 void construct_full_path(const char *directory, const char *command, char *full_path, size_t full_path_size);
-void handle_exit_command(char *args[], int arg_count);
-int is_exit_command(const char *command);
+void handle_exit_command(char *args[], int arg_count, char *input);
+int is_exit_command(char *command);
 void printEnvironmentVariables(void);
-int isLsColorsVariable(const char *variable);
+int isLsColorsVariable(char *variable);
 
 /*helper functions prototypes*/
 int _strlen(char *s);
@@ -35,5 +35,6 @@ char *_strncpy(char *dest, char *src, int n);
 char *_strcat(char *dest, char *src);
 char *_strtok(char *str, const char *delimiters);
 char *customStrncat(char *dest, const char *src, size_t n);
-int _strncmp(const char *s1, const char *s2, size_t n);
+int _strncmp(char *s1,  char *s2, size_t n);
+char *_strncat(char *dest, const char *src, size_t n);
 #endif

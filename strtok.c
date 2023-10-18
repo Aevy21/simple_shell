@@ -1,5 +1,7 @@
 #include "main.h"
 
+char *_strtok(char *str, const char *delimiters);
+
 /**
  * _strtok - Splits a string into tokens based on specified delimiters.
  * @str: The input string to be tokenized.

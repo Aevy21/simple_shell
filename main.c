@@ -1,5 +1,6 @@
 #include "main.h"
 
+int main(void);
 /**
  * main - Entry point for the MyShell program.
  *
@@ -12,7 +13,8 @@
 
 int main(void)
 {
-	char input[MAX_INPUT_LENGTH];
+	char *input = NULL;
+	size_t n = 0;
 	char *args[MAX_ARGS];
 	ssize_t bytes_read;
 	int arg_count = 0;
@@ -23,21 +25,16 @@ int main(void)
 		display_prompt();
 
 		/* Read user input using read */
-		bytes_read = read(STDIN_FILENO, input, sizeof(input));
+		bytes_read = getline(&input, &n, stdin);
 
 		if (bytes_read == -1)
 		{
-			perror("Read error");
-			exit(EXIT_FAILURE);
-
-		}
-		else if (bytes_read == 0)
-		{
+			if (isatty(STDIN_FILENO))
+				write(STDOUT_FILENO, "\n", 1);
+			free(input);
 			break; /* Exit the  shell*/
 		}
 
-		/* Null-terminate the input */
-		input[bytes_read] = '\0';
 		/* Parse the command into arguments */
 		parse_command(input, args);
 		if (args[0] == NULL)
@@ -46,23 +43,19 @@ int main(void)
 		}
 
 		/*handle implement inbuilt exit command */
-		handle_exit_command(args, arg_count);
+		handle_exit_command(args, arg_count, input);
 		/* Check if the user entered the 'env' command */
-		if (strcmp(args[0], "env") == 0)
+		if (_strcmp(args[0], "env") == 0)
 		{
 			printEnvironmentVariables();
 		}
 		else
 		{
 			/* Execute the command */
-			execute_command(args);
+			execute_command(args, input);
 		}
 	}
 
-	if (errno != 0)
-	{
-		perror("Unexpected error");
-	}
 	return (0);
 }
 

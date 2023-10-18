@@ -11,7 +11,7 @@
  *   - A negative value if s1 is less than s2 up to 'n' characters.
  *   - A positive value if s1 is greater than s2 up to 'n' characters.
  */
-int _strncmp(const char *s1, const char *s2, size_t n)
+int _strncmp(char *s1, char *s2, size_t n)
 {
 	while (n > 0 && *s1 && *s2)
 	{
