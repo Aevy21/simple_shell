@@ -17,21 +17,13 @@ int is_exit_command(char *command)
  * @arg_count: The number of arguments in the array.
  * @input: input string.
  */
-void handle_exit_command(char *args[], int arg_count, char *input)
+void handle_exit_command(char *args[], char *input)
 {
 	if (is_exit_command(args[0]))
 	{
 		free(input);
-		if (arg_count > 1)
-		{
-			int exit_code = _atoi(args[1]);
+		exit(EXIT_CODE); /* Use the predefined exit code.*/
 
-			exit(exit_code);
-		}
-		else
-		{
-			exit(EXIT_CODE); /* Use the predefined exit code.*/
-		}
 	}
 }
 

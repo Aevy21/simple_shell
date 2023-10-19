@@ -23,7 +23,7 @@ void parse_command(char *command, char **args);
 void execute_command(char *args[], char *input);
 void construct_full_path(const char *directory, const char *command,
 		char *full_path, size_t full_path_size);
-void handle_exit_command(char *args[], int arg_count, char *input);
+void handle_exit_command(char *args[], char *input);
 int is_exit_command(char *command);
 void printEnvironmentVariables(void);
 int isLsColorsVariable(char *variable);
