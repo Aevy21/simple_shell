@@ -23,7 +23,6 @@ int _strncmp(char *s1, char *s2, size_t n)
 		s2++;
 		n--;
 	}
-
 	if (n == 0)
 	{
 		return (0);

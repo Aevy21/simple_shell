@@ -17,7 +17,6 @@ char *_strncpy(char *dest, char *src, int n)
 	{
 		dest[i] = src[i];
 	}
-
 	/* If there are remaining positions in the dest buffer, fill them with '\0'*/
 	while (i < n)
 	{

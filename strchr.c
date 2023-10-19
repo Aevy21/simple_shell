@@ -20,7 +20,6 @@ char *_strchr(char *str, char c)
 			return (str + i); /* Return a pointer to the found character.*/
 		}
 	}
-
 	/* If character c is not found, return NULL. */
 	return (NULL);
 }

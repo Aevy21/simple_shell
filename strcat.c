@@ -18,7 +18,6 @@ char *_strcat(char *dest, char *src)
 	{
 		dest_len++;
 	}
-
 	/* Copy characters from the source string to the destination string. */
 	for (i = 0; src[i] != '\0'; i++)
 	{
