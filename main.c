@@ -17,6 +17,7 @@ int main(void)
 	size_t n = 0;
 	char *args[MAX_ARGS];
 	ssize_t bytes_read;
+	int arg_count = 0;
 
 	while (1)
 	{
@@ -42,7 +43,7 @@ int main(void)
 		}
 
 		/*handle implement inbuilt exit command */
-		handle_exit_command(args, input);
+		handle_exit_command(args, arg_count, input);
 		/* Check if the user entered the 'env' command */
 		if (_strcmp(args[0], "env") == 0)
 		{
