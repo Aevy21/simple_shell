@@ -14,7 +14,7 @@
 
 #define MAX_ARGS 64
 #define MAX_INPUT_LENGTH 1024
-#define EXIT_CODE 42
+#define EXIT_CODE 0
 
 extern char **environ;
 
