@@ -20,17 +20,18 @@ int is_exit_command(char *command)
 void handle_exit_command(char *args[], int arg_count, char *input)
 {
 	if (is_exit_command(args[0]))
-    {
-        free(input);
-        if (arg_count > 1)
-        {
-            int exit_code = _atoi(args[1]);
-            exit(exit_code);
-        }
-        else
-        {
-            exit(0); /* Use 0 as the default exit code.*/
-        }
-    }
+	{
+		free(input);
+
+		if (arg_count > 1)
+		{
+			int exit_code = _atoi(args[1]);
+			exit(exit_code);
+		}
+		else
+		{
+			exit(0); /* Use 0 as the default exit code.*/
+		}
+	}
 }
 
